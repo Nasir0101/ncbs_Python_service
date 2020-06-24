@@ -1,28 +1,34 @@
 from django.http import JsonResponse
 
-from .importService import importService
+from import_Data.services.ImportCensusDataService import ImportCensusDataService
+from import_Data.services.importPopulationService import ImportPopulationService
 
 
 def importWorldPopulationData(request):
-    response = importService.importWorldPopulationData()
+    response = ImportPopulationService.importWorldPopulationData()
     return JsonResponse(response, status=200, safe=False)
 
 
 def importWorldPopulationGrowthRate(request):
-    response = importService.importWorldPopulationGrowthRate()
+    response = ImportPopulationService.importWorldPopulationGrowthRate()
     return JsonResponse(response, status=200, safe=False)
 
 
 def importWorldPopulationProjectedGrowthRate(request):
-    response = importService.importWorldPopulationProjectedGrowthRate()
+    response = ImportPopulationService.importWorldPopulationProjectedGrowthRate()
     return JsonResponse(response, status=200, safe=False)
 
 
 def pakistanPopulationByYear(request):
-    response = importService.pakistanPopulationByYear()
+    response = ImportPopulationService.pakistanPopulationByYear()
     return JsonResponse(response, status=200, safe=False)
 
 
 def pakistanProjectedPopulationByYear(request):
-    response = importService.pakistanProjectedPopulationByYear()
+    response = ImportPopulationService.pakistanProjectedPopulationByYear()
+    return JsonResponse(response, status=200, safe=False)
+
+
+def importPakistanDetailCensusData(request):
+    response = ImportCensusDataService.importCensusData()
     return JsonResponse(response, status=200, safe=False)

@@ -1,10 +1,10 @@
 import csv
 
-from .models import WorldPopulationByCountryName, WorldPopulationGrowthRate, WorldPopulationProjectedGrowthRate, \
+from import_Data.models import WorldPopulationByCountryName, WorldPopulationGrowthRate, WorldPopulationProjectedGrowthRate, \
     PakistanPopulationByYear, PakistanProjectedPopulationByYear
 
 
-class importService():
+class ImportPopulationService():
 
     @classmethod
     def importWorldPopulationData(cls):
