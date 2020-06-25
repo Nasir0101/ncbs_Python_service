@@ -32,3 +32,8 @@ def pakistanProjectedPopulationByYear(request):
 def importPakistanDetailCensusData(request):
     response = ImportCensusDataService.importCensusData()
     return JsonResponse(response, status=200, safe=False)
+
+
+def importPakistanPercentageCensusData(request):
+    response = ImportCensusDataService.importCensusPercentageData()
+    return JsonResponse(response, status=200, safe=False)
