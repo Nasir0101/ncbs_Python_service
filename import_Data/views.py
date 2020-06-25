@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 
 from import_Data.services.ImportCensusDataService import ImportCensusDataService
+from import_Data.services.RelationShipService import RelationShipService
 from import_Data.services.importPopulationService import ImportPopulationService
 
 
@@ -36,4 +37,9 @@ def importPakistanDetailCensusData(request):
 
 def importPakistanPercentageCensusData(request):
     response = ImportCensusDataService.importCensusPercentageData()
+    return JsonResponse(response, status=200, safe=False)
+
+
+def importCensusDataOnetoOneRelation(request):
+    response = RelationShipService.DetailCensusDataToPercentageDataRelationShip()
     return JsonResponse(response, status=200, safe=False)

@@ -62,6 +62,23 @@ class PakistanProjectedPopulationByYear(models.Model):
         db_table = 'pakistan_projected_pop_by_year'
 
 
+class PakistanCensusPercentageData(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    city = models.CharField(db_column='city', max_length=255, default="")
+    province = models.CharField(db_column='province', max_length=255, default="")
+    male_pop = models.FloatField(db_column='male_pop', default=0)
+    female_pop = models.FloatField(db_column='female_pop', default=0)
+    urban_pop = models.FloatField(db_column='urban_pop', default=0)
+    rural_pop = models.FloatField(db_column='rural_pop', default=0)
+    pacca_housing_unit = models.FloatField(db_column='pacca_housing_unit', default=0)
+    electricity_housing_unit = models.FloatField(db_column='electricity_housing_unit', default=0)
+    water_housing_unit = models.FloatField(db_column='water_housing_unit', default=0)
+    gas_housing_unit = models.FloatField(db_column='gas_housing_unit', default=0)
+
+    class Meta:
+        db_table = 'pakistan_census_percentage_data'
+
+
 class PakistanDetailCensusData(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     city = models.CharField(db_column='city', max_length=255, default="")
@@ -90,46 +107,8 @@ class PakistanDetailCensusData(models.Model):
     mauzas = models.FloatField(db_column='mauzas', default=0)
     municipal_committees = models.FloatField(db_column='municipal_committees', default=0)
     town_committees = models.FloatField(db_column='town_committees', default=0)
+    percentage_data = models.OneToOneField(PakistanCensusPercentageData, on_delete=models.CASCADE, null=True,
+                                           unique=False)
     
     class Meta:
         db_table = 'pakistan_detail_census_data'
-    
-
-
-class PakistanCensusPercentageData(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    city = models.CharField(db_column='city', max_length=255, default="")
-    province = models.CharField(db_column='province', max_length=255, default="")
-    male_pop = models.FloatField(db_column='male_pop', default=0)
-    female_pop = models.FloatField(db_column='female_pop', default=0)
-    urban_pop = models.FloatField(db_column='urban_pop', default=0)
-    rural_pop = models.FloatField(db_column='rural_pop', default=0)
-    pacca_housing_unit= models.FloatField(db_column='pacca_housing_unit', default=0)
-    electricity_housing_unit = models.FloatField(db_column='electricity_housing_unit', default=0)
-    water_housing_unit = models.FloatField(db_column='water_housing_unit', default=0)
-    gas_housing_unit = models.FloatField(db_column='gas_housing_unit', default=0)
-    
-    class Meta:
-        db_table = 'pakistan_census_percentage_data'
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

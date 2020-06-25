@@ -9,5 +9,7 @@ urlpatterns = [
     path('pakistan/population/by/year', views.pakistanPopulationByYear),
     path('pakistan/projected/population/by/year', views.pakistanProjectedPopulationByYear),
     path('pakistan/detail/censusdata', views.importPakistanDetailCensusData),
-    path('pakistan/percentage/censusdata', views.importPakistanPercentageCensusData)
+    path('pakistan/percentage/censusdata', views.importPakistanPercentageCensusData),
+    path('pakistan/data/relations', views.importCensusDataOnetoOneRelation)
+
 ]
